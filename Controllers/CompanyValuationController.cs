@@ -33,7 +33,7 @@ namespace DMA__Pty__Ltd.Controllers
                 for (int i = 0; i < total; i++)
                 {
                     JObject results = (JObject)(items)[i];
-                    symbols.Add(new Symbol((string)results["symbol"], (string)results["name"]));
+                    symbols.Add(new Symbol((string)results["symbol"], (string)results["name"])); ;
                 }
             }
         }
