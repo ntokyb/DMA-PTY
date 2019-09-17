@@ -1,0 +1,33 @@
+﻿@model IEnumerable<DMA__Pty__Ltd.Models.StockMarket>
+@using System.Collections.Generic
+
+<div class="card shadow">
+    <div class="card-header border-0">
+        <h3 class="mb-0">Stock Market Sectors Performance</h3>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead>
+                <tr>
+                    <th scope="col">Sector</th>
+                    <th scope="col">Changes Percentage</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.sector
+                        </td>
+                        <td>
+                            @item.changesPercentage
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

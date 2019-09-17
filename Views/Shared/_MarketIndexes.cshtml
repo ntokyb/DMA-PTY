@@ -1,0 +1,39 @@
+﻿@model IEnumerable<DMA__Pty__Ltd.Models.Market>
+
+<div class="card shadow">
+    <div class="card-header border-0">
+        <h3 class="mb-0">Major Indexes List</h3>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Ticker</th>
+                    <th scope="col">Changes</th>
+                    <th scope="col">Price</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.indexName
+                        </td>
+                        <td>
+                            @item.ticker
+                        </td>
+                        <td>
+                            @item.changes
+                        </td>
+                        <td>
+                            @item.price
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
