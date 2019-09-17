@@ -1,22 +1,77 @@
-﻿@*@using static DMA__Pty__Ltd.Models.Market;*@
+﻿@using X.PagedList.Mvc
+@using X.PagedList;
 @model dynamic
 @{
     ViewBag.Title = "Home Page";
 }
 
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Code</th>
-        <th>Name</th>
-    </tr>
-    @foreach (var teacher in Model.Market)
-    {
-        <tr>
-            <td>@teacher.indexName</td>
-            <td>@teacher.ticker</td>
-            <td>@teacher.changes</td>
-        </tr>
-
-    }
-</table>  
+<div class="row mt-5">
+    <div class="col-xl-8 mb-5 mb-xl-0">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Major Indexes List</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Ticker</th>
+                            <th scope="col">Changes</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Market)
+                        {
+                            <tr>
+                                <td>
+                                    @item.indexName
+                                </td>
+                                <td>
+                                    @item.ticker
+                                </td>
+                                <td>
+                                    @item.changes
+                                </td>
+                                <td>
+                                    @item.price
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-4">
+        <div class="card shadow">
+            <div class="card-header border-0">
+                <h3 class="mb-0">Stock Market Sectors Performance</h3>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-items-center table-flush">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Sector</th>
+                            <th scope="col">Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.StockMarket)
+                        {
+                            <tr>
+                                <td>
+                                    @item.sector
+                                </td>
+                                <td>
+                                    @item.changesPercentage
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

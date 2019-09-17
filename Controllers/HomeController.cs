@@ -8,14 +8,22 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using X.PagedList;
 
 namespace DMA__Pty__Ltd.Controllers
 {
 	public class HomeController : Controller
 	{
-		public ActionResult Index()
+        [HttpGet]
+		public ActionResult Index(int? page)
 		{
             dynamic mymodel = new ExpandoObject();
+            int pageSize = 5;
+            int pageIndex = 1;
+            pageIndex = page.HasValue ? Convert.ToInt32(page) : 1;
+            int totalCount = 0;
+            int pagenumber = (page ?? 1) - 1;
+
             List<Market> markets = new List<Market>();
             HttpWebRequest majorIndexesUrl = (HttpWebRequest)WebRequest.Create("https://financialmodelingprep.com/api/v3/majors-indexes");
             majorIndexesUrl.ContentType = "application/json;";
@@ -32,7 +40,10 @@ namespace DMA__Pty__Ltd.Controllers
                     markets.Add(new Market((string)results["ticker"], (string)results["changes"], (string)results["price"], (string)results["indexName"]));
                 }
             }
-            mymodel.Market = markets;
+            IPagedList<Market> makrketOrders = new StaticPagedList<Market>(markets, pagenumber + 1, 5, totalCount);
+            mymodel.Market = makrketOrders;
+
+
             List<StockMarket> stockMarkets = new List<StockMarket>();
             HttpWebRequest stockUrl = (HttpWebRequest)WebRequest.Create("https://financialmodelingprep.com/api/v3/stock/sectors-performance");
             stockUrl.ContentType = "application/json;";
@@ -49,7 +60,7 @@ namespace DMA__Pty__Ltd.Controllers
                     stockMarkets.Add(new StockMarket((string)results["sector"], (string)results["changesPercentage"]));
                 }
             }
-            mymodel.StockMarket = 
+            mymodel.StockMarket = stockMarkets;
             return View(mymodel);
 		}
 

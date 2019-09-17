@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DMA__Pty__Ltd.Models.MostLoser>
+
+@{
+    ViewBag.Title = "Most Loser Stock";
+}
+
+<div class="card  shadow">
+    <div class="card-header bg-transparent border-0">
+        <h3 class=" mb-0">Most Loser Stock Companies</h3>
+    </div>
+    <div class="table-responsive">
+        <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+            <thead>
+                <tr>
+                    <th>ticker</th>
+                    <th>Company Name</th>
+                    <th>changes</th>
+                    <th>price</th>
+                    <th>Percentage</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td id="@item.ticker">
+                            <a href="https://financialmodelingprep.com/api/v3/financials/income-statement/@item.ticker">
+                            @Html.DisplayFor(modelItem => item.ticker)
+                                </a>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.companyName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.changes)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.changesPercentage)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
