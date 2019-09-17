@@ -7,8 +7,6 @@ namespace DMA__Pty__Ltd.Models
 {
     public class StockMarket
     {
-        public StockMarket()
-        { }
         public StockMarket(string sector, string changesPercentage)
         {
             this.sector = sector;

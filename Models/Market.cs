@@ -7,9 +7,6 @@ namespace DMA__Pty__Ltd.Models
 {
     public class Market
     {
-        public Market()
-        {
-        }
 
         public Market(string ticker, string changes, string price, string indexName)
         {

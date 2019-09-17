@@ -13,11 +13,11 @@ namespace DMA__Pty__Ltd.Controllers
     public class StockMarketController : Controller
     {
         // GET: StockMarket
-        //public ActionResult Index()
-        //{
-        //    StockMarket();
-        //    return View();
-        //}
+        public ActionResult Index()
+        {
+            StockMarket();
+            return View();
+        }
         public PartialViewResult StockMarket()
         {
             List<StockMarket> stockMarkets = new List<StockMarket>();
