@@ -17,25 +17,31 @@ namespace DMA__Pty__Ltd.Controllers
         {
             return View();
         }
-        [HttpGet]
-        public ActionResult CompanyInfomation()
+
+        public ActionResult CompanyInfomation(string symbol)
         {
-            List<Symbol> symbols = new List<Symbol>();
-            HttpWebRequest majorIndexesUrl = (HttpWebRequest)WebRequest.Create("https://financialmodelingprep.com/api/v3/financials/income-statement/");
+            List<CompanyProfile> companyProfiles = new List<CompanyProfile>();
+            HttpWebRequest majorIndexesUrl = (HttpWebRequest)WebRequest.Create("https://financialmodelingprep.com/api/v3/company/profile/"+ symbol);
             majorIndexesUrl.ContentType = "application/json;";
             HttpWebResponse response = majorIndexesUrl.GetResponse() as HttpWebResponse;
             using (Stream responseStream = response.GetResponseStream())
             {
                 StreamReader reader = new StreamReader(responseStream);
                 JObject responseobj = JObject.Parse(reader.ReadToEnd());
-                JArray items = (JArray)responseobj["symbolsList"];
+                JArray items = (JArray)responseobj["profile"];
                 int total = items.Count();
                 for (int i = 0; i < total; i++)
                 {
                     JObject results = (JObject)(items)[i];
-                    symbols.Add(new Symbol((string)results["symbol"], (string)results["name"])); ;
+                    companyProfiles.Add(new CompanyProfile((string)results["price"],(string)results["beta"],
+                        (string)results["volAvg"],(string)results["mktCap"],(string)results["lastDiv"],
+                        (string)results["range"],(string)results["changes"],(string)results["changesPercentage"],
+                        (string)results["companyName"],(string)results["exchange"],(string)results["industry"],
+                        (string)results["website"],(string)results["description"],(string)results["ceo"],
+                        (string)results["sector"],(string)results["image"])); ;
                 }
             }
+            return View(companyProfiles);
         }
     }
 }
