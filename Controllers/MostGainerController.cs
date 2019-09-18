@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace DMA__Pty__Ltd.Controllers
 {
+    [Authorize]
     public class MostGainerController : Controller
     {
         // GET: MostGainer

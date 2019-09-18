@@ -3,53 +3,72 @@
 @{
 	ViewBag.Title = "Log in";
 }
-<section id="loginForm pt-5 pb-5">
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-5 col-md-7">
-				<div class="card bg-secondary shadow border-0">
-					<div class="card-header">
-						<h4>Log in</h4>
-					</div>
-					<div class="card-body">
-						@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-						{
-							@Html.AntiForgeryToken()
-							@Html.ValidationSummary(true, "", new { @class = "text-danger" })
-							<div class="form-group">
-								@Html.LabelFor(m => m.Email, new { @class = "col-md-12 control-label" })
-								<div class="col-md-12">
-									@Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-									@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-								</div>
-							</div>
-							<div class="form-group">
-								@Html.LabelFor(m => m.Password, new { @class = "col-md-12 control-label" })
-								<div class="col-md-12">
-									@Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-									@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-offset-2 col-md-10">
-									<div class="checkbox">
-										@Html.CheckBoxFor(m => m.RememberMe)
-										@Html.LabelFor(m => m.RememberMe)
-									</div>
-								</div>
-							</div>
-							<div class="form-group">
-								<div class="col-md-offset-2 col-md-10">
-									<input type="submit" value="Log in" class="btn btn-default" />
-								</div>
-							</div>
-						}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
+<body class="bg-default">
+    <div class="main-content">
+        <div class="header bg-gradient-primary py-7 py-lg--8">
+            <div class="container">
+                <div class="header-body text-center mb-7">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-6">
+                            <h1 class="text-white">Welcome!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="separator separator-bottom separator-skew zindex-100">
+                <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-5 col-md-7">
+                            <div class="card bg-secondary shadow border-0">
+                                <div class="card-header">
+                                    <h4>Log in</h4>
+                                </div>
+                                <div class="card-body">
+                                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Email, new { @class = "col-md-12 control-label" })
+                                            <div class="col-md-12">
+                                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(m => m.Password, new { @class = "col-md-12 control-label" })
+                                            <div class="col-md-12">
+                                                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <div class="checkbox">
+                                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                                    @Html.LabelFor(m => m.RememberMe)
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-2 col-md-10">
+                                                <input type="submit" value="Log in" class="btn btn-default" />
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+
 
 @section Scripts {
 	@Scripts.Render("~/bundles/jqueryval")

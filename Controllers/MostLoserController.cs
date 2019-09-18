@@ -12,6 +12,7 @@ namespace DMA__Pty__Ltd.Controllers
 {
     public class MostLoserController : Controller
     {
+        [Authorize]
         // GET: MostLoser
         public ActionResult Index()
         {

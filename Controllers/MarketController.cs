@@ -9,6 +9,7 @@ using System.IO;
 
 namespace DMA__Pty__Ltd.Controllers
 {
+    [Authorize]
     public class MarketController : Controller
     {
         // GET: Market
