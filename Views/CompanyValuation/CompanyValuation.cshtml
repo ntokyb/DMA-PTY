@@ -101,7 +101,7 @@
         @foreach (var item in Model.CompanyProfile)
         {
             <!-- Header -->
-            <div class="header bg-gradient-primary pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+            <div class="header  pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../../../Content/img/stock-exchange-913956_1920.jpg); background-size: cover; background-position: center top;">
                 <!-- Mask -->
                 <span class="mask bg-gradient-default opacity-8"></span>
                 <!-- Header container -->
@@ -180,237 +180,248 @@
                                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="accordion" id="innerExample">
-                                            @foreach (var fin in Model.CompanyFinancials)
+                                            @if (Model.CompanyFinancials.Count == 0)
                                             {
-                                                <div class="card-header bg-white border-0" id="headingOne">
+                                                <div class="card-header bg-white border-0" id="headingTwo">
                                                     <h2 class="mb-0">
-                                                        <button class="btn btn-outline-dark collapsed" type="button" data-toggle="collapse" data-target="#innerTwo" aria-expanded="true" aria-controls="innerTwo">
-                                                            @fin.date
-                                                        </button>
+                                                        No data
                                                     </h2>
                                                 </div>
-                                                <div id="innerTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#innerExample">
-                                                    <div class="card-body">
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Revenue:</label>
-                                                                    @fin.Revenue
+                                            }
+                                            else
+                                            {
+                                                foreach (var fin in Model.CompanyFinancials)
+                                                {
+                                                    <div class="card-header bg-white border-0" id="headingOne">
+                                                        <h2 class="mb-0">
+                                                            <button class="btn btn-outline-dark collapsed" type="button" data-toggle="collapse" data-target="#innerTwo" aria-expanded="true" aria-controls="innerTwo">
+                                                                @fin.date
+                                                            </button>
+                                                        </h2>
+                                                    </div>
+                                                    <div id="innerTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#innerExample">
+                                                        <div class="card-body">
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Revenue:</label>
+                                                                        @fin.Revenue
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Revenue Growth:</label>
+                                                                        @fin.RevenueGrowth
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Revenue Growth:</label>
-                                                                    @fin.RevenueGrowth
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Cost of Revenue:</label>
+                                                                        @fin.CostOfRevenue
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Gross Profit:</label>
+                                                                        @fin.GrossProfit
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Cost of Revenue:</label>
-                                                                    @fin.CostOfRevenue
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">R&D Expenses:</label>
+                                                                        @fin.RandDExpenses
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Gross Profit:</label>
-                                                                    @fin.GrossProfit
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">SG&A Expense:</label>
+                                                                        @fin.SGandAExpense
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Operating Expenses:</label>
+                                                                        @fin.OperatingExpenses
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">R&D Expenses:</label>
-                                                                    @fin.RandDExpenses
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Operating Income:</label>
+                                                                        @fin.OperatingIncome
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Interest Expense:</label>
+                                                                        @fin.InterestExpense
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">SG&A Expense:</label>
-                                                                    @fin.SGandAExpense
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Earnings before Tax:</label>
+                                                                        @fin.EarningsbeforeTax
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Income Tax Expense:</label>
+                                                                        @fin.IncomeTaxExpense
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Operating Expenses:</label>
-                                                                    @fin.OperatingExpenses
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Net Income - Non-Controlling int:</label>
+                                                                        @fin.NetIncomeNonControllingint
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Net Income - Discontinued ops:</label>
+                                                                        @fin.NetIncomeDiscontinuedops
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Operating Income:</label>
-                                                                    @fin.OperatingIncome
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Net Income:</label>
+                                                                        @fin.NetIncome
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Preferred Dividends:</label>
+                                                                        @fin.PreferredDividends
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Interest Expense:</label>
-                                                                    @fin.InterestExpense
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Net Income Com:</label>
+                                                                        @fin.NetIncomeCom
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EPS:</label>
+                                                                        @fin.EPS
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Earnings before Tax:</label>
-                                                                    @fin.EarningsbeforeTax
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EPS Diluted:</label>
+                                                                        @fin.EPSDiluted
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Weighted Average Shs Out:</label>
+                                                                        @fin.WeightedAverageShsOut
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Income Tax Expense:</label>
-                                                                    @fin.IncomeTaxExpense
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Weighted Average Shs Out (Dil):</label>
+                                                                        @fin.WeightedAverageShsOutDil
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Dividend per Share:</label>
+                                                                        @fin.DividendperShare
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Net Income - Non-Controlling int:</label>
-                                                                    @fin.NetIncomeNonControllingint
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Gross Margin:</label>
+                                                                        @fin.GrossMargin
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EBITDA Margin:</label>
+                                                                        @fin.EBITDAMargin
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Net Income - Discontinued ops:</label>
-                                                                    @fin.NetIncomeDiscontinuedops
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EBIT Margin:</label>
+                                                                        @fin.EBITMargin
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Profit Margin:</label>
+                                                                        @fin.ProfitMargin
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Net Income:</label>
-                                                                    @fin.NetIncome
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Free Cash Flow margin:</label>
+                                                                        @fin.FreeCashFlowmargin
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EBITDA:</label>
+                                                                        @fin.EBITDA
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Preferred Dividends:</label>
-                                                                    @fin.PreferredDividends
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">EBIT:</label>
+                                                                        @fin.EBIT
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Consolidated Income:</label>
+                                                                        @fin.ConsolidatedIncome
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Net Income Com:</label>
-                                                                    @fin.NetIncomeCom
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Earnings Before Tax Margin:</label>
+                                                                        @fin.EarningsBeforeTaxMargin
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EPS:</label>
-                                                                    @fin.EPS
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EPS Diluted:</label>
-                                                                    @fin.EPSDiluted
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Weighted Average Shs Out:</label>
-                                                                    @fin.WeightedAverageShsOut
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Weighted Average Shs Out (Dil):</label>
-                                                                    @fin.WeightedAverageShsOutDil
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Dividend per Share:</label>
-                                                                    @fin.DividendperShare
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Gross Margin:</label>
-                                                                    @fin.GrossMargin
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EBITDA Margin:</label>
-                                                                    @fin.EBITDAMargin
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EBIT Margin:</label>
-                                                                    @fin.EBITMargin
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Profit Margin:</label>
-                                                                    @fin.ProfitMargin
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Free Cash Flow margin:</label>
-                                                                    @fin.FreeCashFlowmargin
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EBITDA:</label>
-                                                                    @fin.EBITDA
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">EBIT:</label>
-                                                                    @fin.EBIT
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Consolidated Income:</label>
-                                                                    @fin.ConsolidatedIncome
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Earnings Before Tax Margin:</label>
-                                                                    @fin.EarningsBeforeTaxMargin
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-lg-6">
-                                                                <div class="form-group">
-                                                                    <label class="form-control-label">Net Profit Margin:</label>
-                                                                    @fin.NetProfitMargin
+                                                                <div class="col-lg-6">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label">Net Profit Margin:</label>
+                                                                        @fin.NetProfitMargin
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
+                                                }
                                             }
                                         </div>
                                     </div>
@@ -426,252 +437,264 @@
                                 </div>
                                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        @foreach (var finGro in Model.CompanyFinancialGrowth)
+                                        @if (Model.CompanyFinancialGrowth.Count == 0)
                                         {
                                             <div class="card-header bg-white border-0" id="headingTwo">
                                                 <h2 class="mb-0">
-                                                    <button class="btn btn-outline-dark collapsed" type="button" data-toggle="collapse" data-target="#innerThree" aria-expanded="true" aria-controls="innerThree">
-                                                        @finGro.date
-                                                    </button>
+                                                    No data
                                                 </h2>
                                             </div>
-                                            <div id="innerThree" class="collapse" aria-labelledby="headingTwo" data-parent="#innerExample">
-                                                <div class="card-body">
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Gross Profit Growth:</label>
-                                                                @finGro.GrossProfitGrowth
+                                        }
+                                        else
+                                        {
+                                            foreach (var finGro in Model.CompanyFinancialGrowth)
+                                            {
+                                                <div class="card-header bg-white border-0" id="headingTwo">
+                                                    <h2 class="mb-0">
+                                                        <button class="btn btn-outline-dark collapsed" type="button" data-toggle="collapse" data-target="#innerThree" aria-expanded="true" aria-controls="innerThree">
+                                                            @finGro.date
+                                                        </button>
+                                                    </h2>
+                                                </div>
+                                                <div id="innerThree" class="collapse" aria-labelledby="headingTwo" data-parent="#innerExample">
+                                                    <div class="card-body">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Gross Profit Growth:</label>
+                                                                    @finGro.GrossProfitGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">EBIT Growth:</label>
+                                                                    @finGro.EBITGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">EBIT Growth:</label>
-                                                                @finGro.EBITGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Operating Income Growth:</label>
+                                                                    @finGro.OperatingIncomeGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Net Income Growth:</label>
+                                                                    @finGro.NetIncomeGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Operating Income Growth:</label>
-                                                                @finGro.OperatingIncomeGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">EPS Growth:</label>
+                                                                    @finGro.EPSGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">EPS Diluted Growth:</label>
+                                                                    @finGro.EPSDilutedGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Net Income Growth:</label>
-                                                                @finGro.NetIncomeGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Weighted Average Shares Growth:</label>
+                                                                    @finGro.WeightedAverageSharesGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Weighted Average Shares Diluted Growth:</label>
+                                                                    @finGro.WeightedAverageSharesDilutedGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">EPS Growth:</label>
-                                                                @finGro.EPSGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Dividends per Share Growth:</label>
+                                                                    @finGro.DividendsperShareGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Operating Cash Flow growth:</label>
+                                                                    @finGro.OperatingCashFlowgrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">EPS Diluted Growth:</label>
-                                                                @finGro.EPSDilutedGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Free Cash Flow growth:</label>
+                                                                    @finGro.FreeCashFlowgrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">10Y Revenue Growth (per Share):</label>
+                                                                    @finGro.tenYRevenueGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Weighted Average Shares Growth:</label>
-                                                                @finGro.WeightedAverageSharesGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">5Y Revenue Growth (per Share):</label>
+                                                                    @finGro.fiveYRevenueGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">3Y Revenue Growth (per Share):</label>
+                                                                    @finGro.threeYRevenueGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Weighted Average Shares Diluted Growth:</label>
-                                                                @finGro.WeightedAverageSharesDilutedGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">10Y Operating CF Growth (per Share):</label>
+                                                                    @finGro.tenYOperatingCFGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">5Y Operating CF Growth (per Share):</label>
+                                                                    @finGro.fiveYOperatingCFGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Dividends per Share Growth:</label>
-                                                                @finGro.DividendsperShareGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">3Y Operating CF Growth (per Share):</label>
+                                                                    @finGro.threeYOperatingCFGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">10Y Net Income Growth (per Share):</label>
+                                                                    @finGro.tenYNetIncomeGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Operating Cash Flow growth:</label>
-                                                                @finGro.OperatingCashFlowgrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">5Y Net Income Growth (per Share):</label>
+                                                                    @finGro.fiveYNetIncomeGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">3Y Net Income Growth (per Share):</label>
+                                                                    @finGro.threeYNetIncomeGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Free Cash Flow growth:</label>
-                                                                @finGro.FreeCashFlowgrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">10Y Shareholders Equity Growth (per Share):</label>
+                                                                    @finGro.tenYShareholdersEquityGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">5Y Shareholders Equity Growth (per Share):</label>
+                                                                    @finGro.fiveYShareholdersEquityGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">10Y Revenue Growth (per Share):</label>
-                                                                @finGro.tenYRevenueGrowthperShare
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">3Y Shareholders Equity Growth (per Share):</label>
+                                                                    @finGro.threeYShareholdersEquityGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">10Y Dividend per Share Growth (per Share):</label>
+                                                                    @finGro.tenYDividendperShareGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">5Y Revenue Growth (per Share):</label>
-                                                                @finGro.fiveYRevenueGrowthperShare
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">5Y Dividend per Share Growth (per Share):</label>
+                                                                    @finGro.fiveYDividendperShareGrowthperShare
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">3Y Dividend per Share Growth (per Share):</label>
+                                                                    @finGro.threeYDividendperShareGrowthperShare
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">3Y Revenue Growth (per Share):</label>
-                                                                @finGro.threeYRevenueGrowthperShare
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Receivables growth:</label>
+                                                                    @finGro.Receivablesgrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Inventory Growth :</label>
+                                                                    @finGro.InventoryGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">10Y Operating CF Growth (per Share):</label>
-                                                                @finGro.tenYOperatingCFGrowthperShare
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Asset Growth :</label>
+                                                                    @finGro.AssetGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Book Value per Share Growth :</label>
+                                                                    @finGro.BookValueperShareGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">5Y Operating CF Growth (per Share):</label>
-                                                                @finGro.fiveYOperatingCFGrowthperShare
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">Debt Growth :</label>
+                                                                    @finGro.DebtGrowth
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">R&D Expense Growth :</label>
+                                                                    @finGro.RNDExpenseGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">3Y Operating CF Growth (per Share):</label>
-                                                                @finGro.threeYOperatingCFGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">10Y Net Income Growth (per Share):</label>
-                                                                @finGro.tenYNetIncomeGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">5Y Net Income Growth (per Share):</label>
-                                                                @finGro.fiveYNetIncomeGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">3Y Net Income Growth (per Share):</label>
-                                                                @finGro.threeYNetIncomeGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">10Y Shareholders Equity Growth (per Share):</label>
-                                                                @finGro.tenYShareholdersEquityGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">5Y Shareholders Equity Growth (per Share):</label>
-                                                                @finGro.fiveYShareholdersEquityGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">3Y Shareholders Equity Growth (per Share):</label>
-                                                                @finGro.threeYShareholdersEquityGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">10Y Dividend per Share Growth (per Share):</label>
-                                                                @finGro.tenYDividendperShareGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">5Y Dividend per Share Growth (per Share):</label>
-                                                                @finGro.fiveYDividendperShareGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">3Y Dividend per Share Growth (per Share):</label>
-                                                                @finGro.threeYDividendperShareGrowthperShare
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Receivables growth:</label>
-                                                                @finGro.Receivablesgrowth
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Inventory Growth :</label>
-                                                                @finGro.InventoryGrowth
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Asset Growth :</label>
-                                                                @finGro.AssetGrowth
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Book Value per Share Growth :</label>
-                                                                @finGro.BookValueperShareGrowth
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">Debt Growth :</label>
-                                                                @finGro.DebtGrowth
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">R&D Expense Growth :</label>
-                                                                @finGro.RNDExpenseGrowth
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group">
-                                                                <label class="form-control-label">SG&A Expenses Growth :</label>
-                                                                @finGro.SGNAExpensesGrowth
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-control-label">SG&A Expenses Growth :</label>
+                                                                    @finGro.SGNAExpensesGrowth
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
                                         }
+
                                     </div>
                                 </div>
                             </div>
@@ -679,146 +702,231 @@
                                 <div class="card-header" id="headingThree">
                                     <h2 class="mb-0">
                                         <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                             Company Rating
+                                            Company Rating
                                         </button>
                                     </h2>
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        @foreach (var rating in Model.CompanyRateRating)
+                                        @if (Model.CompanyRateRating.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @rating.score
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @rating.rating
-                                                    </div>
-                                                </div>
+                                            <div class="card-header bg-white border-0" id="headingTwo">
+                                                <h2 class="mb-0">
+                                                    No data
+                                                </h2>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Recommendation :</label>
-                                                        @rating.recommendation
+                                        }
+                                        else
+                                        {
+                                            foreach (var rating in Model.CompanyRateRating)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @rating.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @rating.rating
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Recommendation :</label>
+                                                            @rating.recommendation
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
                                         }
                                         <h2>Rating Details</h2>
                                         <h3>P/B</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails)
+                                        @if (Model.CompanyRateRatingDetails.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
+                                        }
+                                        else
+                                        {
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         }
                                         <h3>ROA</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails1)
+                                        @if (Model.CompanyRateRatingDetails1.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
+                                        }
+                                        else
+                                        {
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails1)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         }
                                         <h3>DCF</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails2)
+                                        @if (Model.CompanyRateRatingDetails2.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
+                                        }
+                                        else
+                                        {
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails2)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            }
                                         }
                                         <h3>P/E</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails3)
+                                        @if (Model.CompanyRateRatingDetails3.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
                                         }
-                                        <h3>ROE</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails4)
+                                        else
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails3)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
+                                            }
+                                        }
+
+                                        <h3>ROE</h3>
+                                        @if (Model.CompanyRateRatingDetails4.Count == 0)
+                                        {
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
+                                        }
+                                        else
+                                        {
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails4)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            }
                                         }
                                         <h3>D/E</h3>
-                                        @foreach (var ratingD in Model.CompanyRateRatingDetails5)
+                                        @if (Model.CompanyRateRatingDetails5.Count == 0)
                                         {
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Score :</label>
-                                                        @ratingD.score
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="form-group">
-                                                        <label class="form-control-label">Rating :</label>
-                                                        @ratingD.recommendation
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <h6 class="mb-0">
+                                                No data
+                                            </h6>
                                         }
+                                        else
+                                        {
+                                            foreach (var ratingD in Model.CompanyRateRatingDetails5)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Score :</label>
+                                                            @ratingD.score
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="form-control-label">Rating :</label>
+                                                            @ratingD.recommendation
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                    <h2 class="mb-0">
+                                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                            Company Stock Chart
+                                        </button>
+                                    </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                    <div class="card-body">
+                                        <div class="form-group row">
+                                            <div class="col-md-12">
+                                                <canvas id="myChart" width="400" height="400"></canvas>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -840,5 +948,35 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     <script src="~/Scripts/main.js"></script>
+    <script src="~/Content/chart.js/dist/Chart.min.js"></script>
+    <script>
+    $(function () {
+        var data = JSON.parse('@Html.Raw(Json.Encode(ViewData["StockChart"]))')
+        var date = [];
+        var close = [];
+        for (var i in data) {
+            date.push(data[i].date);
+            close.push(data[i].close);
+        }
+        var chartData = {
+            labels: date,
+        datasets: [
+                {
+                    label: 'Stock Chart/ Close',
+                    backgroundColor: '#5e72e4 ',
+                    borderColor: '#825ee4',
+                    hoverBackgroundColor: 'rgba(200, 200, 200, 1)',
+                    hoverBorderColor: 'rgba(200, 200, 200, 1)',
+                    data: close
+                }
+            ]}
+
+        var ctx = $('#myChart')
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData
+        });
+    });
+    </script>
 </body>
 </html>

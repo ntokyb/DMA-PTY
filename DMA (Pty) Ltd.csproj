@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyValuationController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\StockChartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -220,6 +221,10 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chart.js\dist\Chart.bundle.min.js" />
+    <Content Include="Content\chart.js\dist\Chart.extension.js" />
+    <Content Include="Content\chart.js\dist\Chart.min.css" />
+    <Content Include="Content\chart.js\dist\Chart.min.js" />
     <Content Include="Content\Css.css" />
     <Content Include="Content\fontawesome-free\css\all.min.css" />
     <Content Include="Content\fontawesome-free\css\brands.min.css" />
@@ -1585,6 +1590,7 @@
     <Content Include="Content\fontawesome-free\webfonts\fa-brands-400.svg" />
     <Content Include="Content\fontawesome-free\webfonts\fa-regular-400.svg" />
     <Content Include="Content\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <Content Include="Content\img\stock-exchange-913956_1920.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -1697,7 +1703,8 @@
     <Content Include="Views\CompanyValuation\Index.cshtml" />
     <Content Include="Views\CompanyValuation\CompanyValuation.cshtml" />
     <Content Include="Views\StockChart\Index.cshtml" />
-    <Content Include="Views\Shared\404.cshtml" />
+    <Content Include="Views\Error\404.cshtml" />
+    <Content Include="Views\StockChart\CompanyStockChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
