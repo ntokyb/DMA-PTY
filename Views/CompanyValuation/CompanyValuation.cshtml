@@ -61,8 +61,8 @@
                 </form>
                 <!-- Navigation -->
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown active">
-                        <a class="nav-link pr-0 active" href="@Url.Action("Index","Home")" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link pr-0" href="@Url.Action("Index","Home")" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-percent text-primary"></i>Market&nbsp;<i class="fa fa-chevron-down text-primary"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
@@ -72,13 +72,13 @@
                         </div>
 
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link " href="@Url.Action("Index","CompanyValuation")">
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="@Url.Action("Index","CompanyValuation")">
                             <i class="fas fa-chart-bar text-blue"></i> Company Valuation
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="./examples/maps.html">
+                        <a class="nav-link " href="@Url.Action("Index","StockChart")">
                             <i class="fas fa-chart-pie text-orange"></i> Stock Chart
                         </a>
                     </li>
@@ -685,7 +685,140 @@
                                 </div>
                                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                                     <div class="card-body">
-                                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                        @foreach (var rating in Model.CompanyRateRating)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @rating.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @rating.rating
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Recommendation :</label>
+                                                        @rating.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h2>Rating Details</h2>
+                                        <h3>P/B</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h3>ROA</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails1)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h3>DCF</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails2)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h3>P/E</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails3)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h3>ROE</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails4)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        <h3>D/E</h3>
+                                        @foreach (var ratingD in Model.CompanyRateRatingDetails5)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Score :</label>
+                                                        @ratingD.score
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <label class="form-control-label">Rating :</label>
+                                                        @ratingD.recommendation
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>

@@ -108,7 +108,13 @@ namespace DMA__Pty__Ltd.Controllers
             }
             mymodel.CompanyFinancialGrowth = companyFinancialGrowths;
 
-            List<CompanyRate> companyRates = new List<CompanyRate>();
+            List<CompanyRate.Rating> companyRates = new List<CompanyRate.Rating>();
+            List<CompanyRate.RatingDetails> companyRatesDetails = new List<CompanyRate.RatingDetails>();
+            List<CompanyRate.RatingDetails> companyRatesDetails1 = new List<CompanyRate.RatingDetails>();
+            List<CompanyRate.RatingDetails> companyRatesDetails2 = new List<CompanyRate.RatingDetails>();
+            List<CompanyRate.RatingDetails> companyRatesDetails3 = new List<CompanyRate.RatingDetails>();
+            List<CompanyRate.RatingDetails> companyRatesDetails4 = new List<CompanyRate.RatingDetails>();
+            List<CompanyRate.RatingDetails> companyRatesDetails5 = new List<CompanyRate.RatingDetails>();
             HttpWebRequest rateIndexesUrl = (HttpWebRequest)WebRequest.Create("https://financialmodelingprep.com/api/v3/company/rating/" + symbol);
             financeIndexesUrl.ContentType = "application/json;";
             HttpWebResponse rateresponse = rateIndexesUrl.GetResponse() as HttpWebResponse;
@@ -125,10 +131,28 @@ namespace DMA__Pty__Ltd.Controllers
 
                 JObject items = (JObject)responseobj["rating"];
                 JObject itemss = (JObject)responseobj["ratingDetails"];
-                items["score"].ToString();
-                itemss["P/B"].ToString();
-            }
+                JObject pb = (JObject)itemss["P/B"];
+                JObject ROA = (JObject)itemss["ROA"];
+                JObject DCF = (JObject)itemss["DCF"];
+                JObject pe = (JObject)itemss["P/E"];
+                JObject ROE = (JObject)itemss["ROE"];
+                JObject de = (JObject)itemss["D/E"];
+                companyRates.Add(new CompanyRate.Rating((string)items["score"], (string)items["rating"], (string)items["recommendation"]));
+                companyRatesDetails.Add(new CompanyRate.RatingDetails((string)pb["score"], (string)pb["recommendation"]));
+                companyRatesDetails1.Add(new CompanyRate.RatingDetails((string)ROA["score"], (string)ROA["recommendation"]));
+                companyRatesDetails2.Add(new CompanyRate.RatingDetails((string)DCF["score"], (string)DCF["recommendation"]));
+                companyRatesDetails3.Add(new CompanyRate.RatingDetails((string)pe["score"], (string)pe["recommendation"]));
+                companyRatesDetails4.Add(new CompanyRate.RatingDetails((string)ROE["score"], (string)ROE["recommendation"]));
+                companyRatesDetails5.Add(new CompanyRate.RatingDetails((string)de["score"], (string)de["recommendation"]));
 
+            }
+            mymodel.CompanyRateRating = companyRates;
+            mymodel.CompanyRateRatingDetails = companyRatesDetails;
+            mymodel.CompanyRateRatingDetails1 = companyRatesDetails1;
+            mymodel.CompanyRateRatingDetails2 = companyRatesDetails2;
+            mymodel.CompanyRateRatingDetails3 = companyRatesDetails3;
+            mymodel.CompanyRateRatingDetails4 = companyRatesDetails4;
+            mymodel.CompanyRateRatingDetails5 = companyRatesDetails5;
 
                 return View("CompanyValuation", mymodel);
         }

@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="card shadow" id="companyValuation">
+    <div class="card-body">
+        <div class="form-group row">
+            <label class="col-md-2 col-form-label">Pick a Company</label>
+            <div class="col-md-6">
+                <select id="symbol-dropdown" name="symbol" class="form-control">
+                </select>
+            </div>
+            <div class="col-md-4">
+                <a class="btn btn-outline-primary btn-block" id="btnSearch" href="">Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script>
+    $(function () {
+        $('#symbol-dropdown').on('change', function () {
+            var selectedValue = $('#symbol-dropdown').val();
+            $('#btnSearch').attr('href', '/StockChart/CompanyStockChart?symbol=' + selectedValue);
+        })
+    })
+</script>

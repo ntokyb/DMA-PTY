@@ -185,6 +185,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CompanyValuationController.cs" />
+    <Compile Include="Controllers\StockChartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MarketController.cs" />
@@ -206,6 +207,7 @@
     <Compile Include="Models\MostActive.cs" />
     <Compile Include="Models\MostGainer.cs" />
     <Compile Include="Models\MostLoser.cs" />
+    <Compile Include="Models\StockChart.cs" />
     <Compile Include="Models\Symbol.cs" />
     <Compile Include="Models\StockMarket.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1686,7 +1688,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Shared\404.cshtml" />
     <Content Include="Views\Market\Index.cshtml" />
     <Content Include="Views\Shared\_MarketIndexes.cshtml" />
     <Content Include="Views\Shared\_StockMarket.cshtml" />
@@ -1695,6 +1696,8 @@
     <Content Include="Views\MostLoser\Index.cshtml" />
     <Content Include="Views\CompanyValuation\Index.cshtml" />
     <Content Include="Views\CompanyValuation\CompanyValuation.cshtml" />
+    <Content Include="Views\StockChart\Index.cshtml" />
+    <Content Include="Views\Shared\404.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
