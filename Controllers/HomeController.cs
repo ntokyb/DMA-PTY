@@ -12,7 +12,7 @@ using X.PagedList;
 
 namespace DMA__Pty__Ltd.Controllers
 {
-    //[Authorize]
+    [Authorize]
 	public class HomeController : Controller
 	{
         [HttpGet]

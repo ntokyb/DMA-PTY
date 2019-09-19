@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace DMA__Pty__Ltd.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class CompanyValuationController : Controller
     {
         // GET: CompanyValuation
